@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu
+hooks:
+  BeforeInstall:
+    - location: my_files/before.sh
+      timeout: 300
+  AfterInstall:
+    - location: my_files/after.sh
+      timeout: 300

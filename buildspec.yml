@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Docker Hub...
+
+
+  build:
+    commands:
+      - echo Build started on date
+      - echo Building the Docker image using Docker Compose...
+      - docker-compose build
+      # - docker tag python-docker-app:latest debjyoti12/docker-python-app:latest
+
+  post_build:
+    commands:
+      - echo Build completed on date
+      - docker tag docker-python-app aviman/python-aws-repo:latest
+      - docker login -u aviman -p 1234@linuxop
+      - echo Pushing the Docker image to Docker Hub...
+      - docker push aviman/python-aws-repo:latest
+artifacts: 
+  files:
+    - "**/*"

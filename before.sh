@@ -1,0 +1,1 @@
+docker login -u aviman -p 1234@linuxop
